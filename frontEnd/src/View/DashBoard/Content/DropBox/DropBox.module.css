@@ -1,0 +1,14 @@
+.dropBox {
+    padding: 20px;
+    font-size: 20px;
+    border: 1px dotted rgba(241, 227, 227, 0.692);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tagDropBox {
+    padding: 20px;
+    font-size: 20px;
+    border: 1px dotted rgba(241, 227, 227, 0.692);
+}

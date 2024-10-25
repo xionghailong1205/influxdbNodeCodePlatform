@@ -1,0 +1,18 @@
+.sidebarTitle {
+    font-size: 18px;
+    padding: 13px 10px;
+    width: 100%;
+    background-color: #1e3850;
+}
+
+
+.draggableBox {
+    width: 90%;
+    padding: 13px 10px;
+    margin: 10px;
+    font-size: 18px;
+}
+
+.draggableBox:hover {
+    background-color: #99b2c912;
+}

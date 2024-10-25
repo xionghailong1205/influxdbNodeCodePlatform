@@ -1,0 +1,49 @@
+.container {
+    width: 1000px;
+    background-color: #191a2a;
+    padding: 20px;
+    margin: auto;
+    overflow: auto;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.leftPanel {
+    min-width: 350px;
+}
+
+.rightPanel {
+    flex: 1;
+}
+
+.codeBox {
+    height: 400px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px 20px;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.codeBox::-webkit-scrollbar {
+    display: none;
+}
+
+.queryBox {
+    display: flex;
+    gap: 20px;
+}
+
+.resultBox {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frameBox {
+    height: 400px;
+    width: 900px;
+}
