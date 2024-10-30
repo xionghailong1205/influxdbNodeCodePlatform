@@ -225,4 +225,35 @@ export namespace API {
     let res = await response.json();
     return res;
   };
+
+  export const getFluxQueryResult = async ({
+    newFluxCode,
+  }: {
+    newFluxCode: string;
+  }): Promise<Array<{}>> => {
+    const { token, orgID } = getAuthInfo();
+
+    let headersList = {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    };
+
+    const bodyContent = JSON.stringify({
+      influxQueryCode: newFluxCode,
+      token,
+      orgID,
+    });
+
+    let response = await fetch("http://localhost:4000/getfluxQueryResult", {
+      method: "POST",
+      body: bodyContent,
+      headers: headersList,
+    });
+
+    let queryResult = await response.json();
+
+    console.log(queryResult);
+
+    return queryResult;
+  };
 }

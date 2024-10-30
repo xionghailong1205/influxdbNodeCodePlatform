@@ -18,7 +18,7 @@ const DashBoard = () => {
                     className={classes.container}
                 >
                     <div
-                        className={classes.sidebar}
+                        className={`${classes.sidebar}`}
                     >
                         <DnDSideBar />
                     </div>

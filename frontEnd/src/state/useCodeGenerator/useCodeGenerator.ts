@@ -5,6 +5,7 @@ import { TagInfo } from "@/View/DashBoard/type";
 import { DateRange } from "react-day-picker";
 import { addDays } from "date-fns";
 import { useDnDSidebar } from "../useDnDSidebar";
+import { useInfluxdbResult } from "../useInfluxdbResult/useInfluxdbResult";
 
 export type BoxType = "BucketBox" | "MeasurementBox" | "FieldBox" | "TagBox";
 
@@ -51,6 +52,9 @@ export const useCodeGenerator = create<State & Action>((set, get) => ({
   },
   deleteSelectedBucket() {
     const changeSideBarState = useDnDSidebar.getState().changeSideBarState;
+    const clearDataSource = useInfluxdbResult.getState().clearDataSource;
+
+    clearDataSource();
 
     set({
       selectedBucket: undefined,
@@ -68,6 +72,9 @@ export const useCodeGenerator = create<State & Action>((set, get) => ({
   },
   deleteSelectedMeasurement() {
     const changeSideBarState = useDnDSidebar.getState().changeSideBarState;
+    const clearDataSource = useInfluxdbResult.getState().clearDataSource;
+
+    clearDataSource();
 
     set({
       selectedMeasurement: undefined,

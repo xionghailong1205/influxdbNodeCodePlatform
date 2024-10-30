@@ -297,6 +297,30 @@ app.post("/doQuery", async (req, res) => {
   });
 });
 
+app.post("/getfluxQueryResult", async (req, res) => {
+  const { influxQueryCode, token, orgID } = req.body;
+
+  const influxDB = new InfluxDB({ url, token });
+  const queryAPI = influxDB.getQueryApi(orgID);
+
+  const resultList = [];
+
+  queryAPI.queryRows(influxQueryCode, {
+    next: (row, tableMeta) => {
+      const tableObject = tableMeta.toObject(row);
+      console.log(tableObject);
+      resultList.push(tableObject);
+    },
+    error: (error) => {
+      console.error("\nError", error);
+    },
+    complete: () => {
+      console.log("\nSuccess");
+      res.json(resultList);
+    },
+  });
+});
+
 const getVisualizationDashBoardInfo = async () => {
   let headersList = {
     Accept: "*/*",

@@ -36,7 +36,11 @@
     gap: 20px;
 }
 
-.resultBox {
+.influxdbResultBox {
+    margin-top: 10px;
+}
+
+.grafanaResultBox {
     margin-top: 20px;
     display: flex;
     justify-content: center;

@@ -9,12 +9,10 @@ async function main() {
 
   // Flux query to fetch measurements
   const fluxQuery = `
-    import "influxdata/influxdb/schema"
-
-    schema.measurementFieldKeys(
-      bucket: "test",
-      measurement: "migration",
-    )
+    from(bucket: "test")
+      |> range(start: 2024-10-01T00:00:00Z, stop: 2024-10-10T00:00:00Z)
+      |> filter(fn: (r) => r._measurement == "coindesk")
+      |> filter(fn: (r) => r.code == "GBP")
   `;
 
   console.log("Executing measurements query:", fluxQuery);
